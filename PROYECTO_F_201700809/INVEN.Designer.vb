@@ -121,7 +121,7 @@ Partial Class INVEN
         '
         Me.TextBox2.Location = New System.Drawing.Point(148, 189)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(196, 26)
+        Me.TextBox2.Size = New System.Drawing.Size(294, 26)
         Me.TextBox2.TabIndex = 31
         '
         'ComboBox1
@@ -159,9 +159,9 @@ Partial Class INVEN
         Me.Button1.Location = New System.Drawing.Point(17, 248)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(327, 45)
+        Me.Button1.Size = New System.Drawing.Size(205, 45)
         Me.Button1.TabIndex = 36
-        Me.Button1.Text = "Agregar a Inventario"
+        Me.Button1.Text = "Agregar Pedido"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Timer1

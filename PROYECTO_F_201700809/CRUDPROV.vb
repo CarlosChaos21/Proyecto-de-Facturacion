@@ -7,7 +7,6 @@ Public Class CRUDPROV
     End Sub
 
     Public Sub RefreshGrid()
-        'Method for update Datagrid View with windows form'
         Try
             ConGrid = "SELECT * FROM PROVEEDOR"
             adaptador = New MySqlDataAdapter(ConGrid, conexion)
@@ -81,7 +80,6 @@ Public Class CRUDPROV
             TextBox3.Clear()
             TextBox4.Clear()
             TextBox6.Clear()
-            'Method for alter table and update checkpointer with id in the table auto_incremente)'
             actualizar = "alter table proveedor AUTO_INCREMENT=1;"
             comandos = New MySqlCommand(actualizar, conexion)
             comandos.ExecuteNonQuery()

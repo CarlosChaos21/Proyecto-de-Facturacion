@@ -30,6 +30,7 @@ Partial Class VENTA
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -47,7 +48,6 @@ Partial Class VENTA
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -140,6 +140,13 @@ Partial Class VENTA
         Me.Button1.Text = "Generar Factura"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(310, 226)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(103, 26)
+        Me.TextBox4.TabIndex = 24
+        '
         'TextBox5
         '
         Me.TextBox5.Location = New System.Drawing.Point(310, 274)
@@ -162,12 +169,12 @@ Partial Class VENTA
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(12, 386)
+        Me.DataGridView2.Location = New System.Drawing.Point(51, 362)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowHeadersWidth = 62
         Me.DataGridView2.RowTemplate.Height = 28
-        Me.DataGridView2.Size = New System.Drawing.Size(1006, 214)
+        Me.DataGridView2.Size = New System.Drawing.Size(968, 249)
         Me.DataGridView2.TabIndex = 29
         '
         'Button5
@@ -292,7 +299,7 @@ Partial Class VENTA
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.DataGridView1.Location = New System.Drawing.Point(1031, 705)
+        Me.DataGridView1.Location = New System.Drawing.Point(1029, 708)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 62
@@ -309,21 +316,12 @@ Partial Class VENTA
         Me.Column1.Visible = False
         Me.Column1.Width = 150
         '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(310, 224)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(97, 28)
-        Me.ComboBox3.TabIndex = 50
-        '
         'VENTA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(1040, 715)
-        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.Label12)
@@ -339,6 +337,7 @@ Partial Class VENTA
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label6)
@@ -365,6 +364,7 @@ Partial Class VENTA
     Friend WithEvents Label6 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents DataGridView2 As DataGridView
@@ -382,5 +382,4 @@ Partial Class VENTA
     Friend WithEvents Label12 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents ComboBox3 As ComboBox
 End Class
