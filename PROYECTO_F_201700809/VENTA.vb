@@ -77,7 +77,7 @@ Public Class VENTA
 
     End Sub
     Public Sub SubTotal()
-        suma = Val(TextBox4.Text) * Val(TextBox2.Text)
+        suma = Val(ComboBox3.SelectedValue) * Val(TextBox2.Text)
         TextBox6.Text = Val(suma)
 
     End Sub
@@ -105,14 +105,13 @@ Public Class VENTA
 
             comandos.Parameters.AddWithValue("@DetalleFactura", TextBox5.Text)
             comandos.Parameters.AddWithValue("@FechaFactura", DateTimePicker1.Value)
-            comandos.Parameters.AddWithValue("@Cantidad", TextBox4.Text)
+            comandos.Parameters.AddWithValue("@Cantidad", ComboBox3.SelectedValue)
             comandos.Parameters.AddWithValue("@PRODUCTO_idPRoducto", ComboBox2.SelectedValue)
             comandos.ExecuteNonQuery()
             Call SubTotal()
             Call TotalCash()
             MsgBox("Datos correctamente guardados")
             Call RefreshGrid()
-            TextBox4.Clear()
             TextBox5.Clear()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -159,6 +158,7 @@ Public Class VENTA
         If Lista <> 0 Then
 
             TextBox2.Text = dts.Tables("PRODUCTO").Rows(0).Item("Precio")
+            ComboBox3.Text = dts.Tables("INVENTARIO").Rows(0).Item("Cantidad")
 
         Else
             MsgBox("Nombre del producto no encontrado, verifique el nombre del producto.")
@@ -169,7 +169,4 @@ Public Class VENTA
 
     End Sub
 
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-
-    End Sub
 End Class

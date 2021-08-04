@@ -80,6 +80,8 @@ Public Class INVEN
             MsgBox("Datos correctamente guardados")
             Call RefreshGrid()
 
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
