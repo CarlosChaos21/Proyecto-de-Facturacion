@@ -48,6 +48,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="itextsharp">
       <HintPath>..\..\..\..\..\..\Desktop\PERSONAL\PAGOS\LUZ\Nueva carpeta (2)\itextsharp.dll</HintPath>
     </Reference>
@@ -59,7 +64,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -110,6 +118,12 @@
     </Compile>
     <Compile Include="CRUDPROV.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiseñoFinal.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiseñoFinal.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="FACTURA.Designer.vb">
       <DependentUpon>FACTURA.vb</DependentUpon>
@@ -169,6 +183,10 @@
     <EmbeddedResource Include="CRUDPROV.resx">
       <DependentUpon>CRUDPROV.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiseñoFinal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DiseñoFinal.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FACTURA.resx">
       <DependentUpon>FACTURA.vb</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +217,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

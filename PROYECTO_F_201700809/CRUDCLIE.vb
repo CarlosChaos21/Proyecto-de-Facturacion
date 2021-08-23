@@ -23,6 +23,8 @@ Public Class CRUDCLIE
         Call RefreshGrid()
     End Sub
 
+
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If TextBox6.Text <> "" Then
             ConB = "SELECT * FROM CLIENTE where Nombre='" & TextBox6.Text & "'"
@@ -36,7 +38,11 @@ Public Class CRUDCLIE
             TextBox1.Text = dts.Tables("CLIENTE").Rows(0).Item("Nombre")
             TextBox2.Text = dts.Tables("CLIENTE").Rows(0).Item("NIT")
             TextBox3.Text = dts.Tables("CLIENTE").Rows(0).Item("Direccion")
-            TextBox4.Text = dts.Tables("CLIENTE").Rows(0).Item("Telefono")
+            If Convert.ToString((dts.Tables("CLIENTE").Rows(0).Item("Telefono"))) = String.Empty Then
+                TextBox4.Text = ""
+            Else
+                TextBox4.Text = dts.Tables("CLIENTE").Rows(0).Item("Telefono")
+            End If
 
         Else
             MsgBox("Nombre del producto no encontrado, verifique el nombre del producto.")
@@ -51,7 +57,14 @@ Public Class CRUDCLIE
             comandos.Parameters.AddWithValue("@Nombre", TextBox1.Text)
             comandos.Parameters.AddWithValue("@NIT", TextBox2.Text)
             comandos.Parameters.AddWithValue("@Direccion", TextBox3.Text)
-            comandos.Parameters.AddWithValue("@Telefono", TextBox4.Text)
+            If TextBox4.Text = "" Then
+                comandos.Parameters.AddWithValue("@Telefono", DBNull.Value)
+
+            Else
+                comandos.Parameters.AddWithValue("@Telefono", TextBox4.Text)
+            End If
+
+
             comandos.ExecuteNonQuery()
             TextBox1.Clear()
             TextBox2.Clear()
@@ -86,17 +99,42 @@ Public Class CRUDCLIE
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        actualizar = "UPDATE CLIENTE SET Nombre='" & TextBox1.Text & "', NIT='" & TextBox2.Text & "' 
+        If TextBox4.Text = "" Then
+            actualizar = "UPDATE CLIENTE SET Nombre='" & TextBox1.Text & "', NIT='" & TextBox2.Text & "' 
+                     , Direccion='" & TextBox3.Text & "'
+                     WHERE Nombre='" & TextBox6.Text & "'"
+            comandos = New MySqlCommand(actualizar, conexion)
+            comandos.ExecuteNonQuery()
+
+
+            MsgBox("Datos Actualizados ")
+            TextBox1.Clear()
+            TextBox2.Clear()
+            TextBox3.Clear()
+            TextBox4.Clear()
+            TextBox6.Clear()
+            Call RefreshGrid()
+
+        Else
+            actualizar = "UPDATE CLIENTE SET Nombre='" & TextBox1.Text & "', NIT='" & TextBox2.Text & "' 
                      , Direccion='" & TextBox3.Text & "', Telefono='" & TextBox4.Text &
                      "'WHERE Nombre='" & TextBox6.Text & "'"
-        comandos = New MySqlCommand(actualizar, conexion)
-        comandos.ExecuteNonQuery()
-        MsgBox("Datos Actualizados ")
-        TextBox1.Clear()
-        TextBox2.Clear()
-        TextBox3.Clear()
-        TextBox4.Clear()
-        TextBox6.Clear()
-        Call RefreshGrid()
+            comandos = New MySqlCommand(actualizar, conexion)
+            comandos.ExecuteNonQuery()
+
+            MsgBox("Datos Actualizados ")
+            TextBox1.Clear()
+            TextBox2.Clear()
+            TextBox3.Clear()
+            TextBox4.Clear()
+            TextBox6.Clear()
+            Call RefreshGrid()
+        End If
+
+
+
+
+
     End Sub
+
 End Class
